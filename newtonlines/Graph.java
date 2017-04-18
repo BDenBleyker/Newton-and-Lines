@@ -32,7 +32,7 @@ public class Graph {
     }
     
     public void plot(Coordinate c) {
-        gc.fillOval(c.getXCanvas - 3, c.getYCanvas - 3, 6, 6)
+        gc.fillOval(toCanvasX(c.getX()) - 3, toCanvasY(c.getY()) - 3, 6, 6)
     }
     
     public double toCanvasX(double x) {
