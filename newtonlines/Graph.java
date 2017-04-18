@@ -4,7 +4,8 @@ public class Graph {
     
     private final int width;
     private final int height;
-    private final GraphicsContext gc;
+    private final GraphicsContext gc = NewtonLines.getGC();
+    private List<Line> lines = new ArrayList();
     
     public Graph (int width, int height, GraphicsContext gc) {
         this.width = width;
@@ -34,4 +35,17 @@ public class Graph {
         gc.fillOval(c.getXCanvas - 3, c.getYCanvas - 3, 6, 6)
     }
     
+    public double toCanvasX(double x) {
+        return (x - (width / 2)) / 20;
+    }
+    
+    public double toCanvasY(double y) {
+        return (-y - (height / 2)) / 20;
+    }
+    
+    public Line line(Coordinate a, Coordinate b) {
+        Line l = new Line(a, b);
+        lines.add(l);
+        return l;
+    }
 }
